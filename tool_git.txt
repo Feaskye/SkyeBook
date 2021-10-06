@@ -3,7 +3,6 @@ git config --global --unset https.proxy
 
 
 git config --global http.sslVerify "false"
-git config --list
 
 git config --global --unset credential.helper
 
