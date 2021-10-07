@@ -46,11 +46,7 @@ Java     5.0 对泛型的支持，现在可以按类型而不是按名称检索 
 
  
 
-## 问题四 
-
- 
-
-如何重新加载 Spring Boot 上的更改，而无需重新启动服务器？ 
+## 如何重新加载 Spring Boot 上的更改，而无需重新启动服务器？ 
 
  
 
@@ -66,11 +62,7 @@ org.springframework.boot spring-boot-devtools true
 
 
 
-## 问题五 
-
- 
-
-Spring Boot 中的监视器是什么？ 
+## Spring Boot 中的监视器是什么？ 
 
  
 
@@ -78,11 +70,7 @@ Spring boot actuator 是 spring 启动框架中的重要功能之一。Spring bo
 
  
 
-## 问题六 
-
- 
-
-如何在 Spring Boot 中禁用 Actuator 端点安全性？ 
+## 如何在 Spring Boot 中禁用 Actuator 端点安全性？ 
 
  
 
@@ -98,11 +86,7 @@ management.security.enabled = false
 
  
 
-## 问题七 
-
- 
-
-如何在自定义端口上运行 Spring Boot 应用程序？ 
+## 如何在自定义端口上运行 Spring Boot 应用程序？ 
 
  
 
@@ -114,11 +98,7 @@ server.port = 8090
 
  
 
-## 问题八 
-
- 
-
-什么是 YAML？ 
+## 什么是 YAML？ 
 
  
 
@@ -130,11 +110,7 @@ YAML 是一种人类可读的数据序列化语言。它通常用于配置文件
 
  
 
-## 问题九 
-
- 
-
-如何实现 Spring Boot 应用程序的安全性？ 
+## 如何实现 Spring Boot 应用程序的安全性？ 
 
  
 
@@ -142,11 +118,7 @@ YAML 是一种人类可读的数据序列化语言。它通常用于配置文件
 
  
 
-## 问题十 
-
-
-
-如何集成 Spring Boot 和 ActiveMQ？ 
+## 如何集成 Spring Boot 和 ActiveMQ？ 
 
  
 
@@ -158,11 +130,7 @@ spring-boot-starter-activemq 依赖关系。 它只需要很少的配置，并�
 
  
 
-## 问题十一 
-
- 
-
-如何使用 Spring Boot 实现分页和排序？ 
+## 如何使用 Spring Boot 实现分页和排序？ 
 
  
 
@@ -174,11 +142,7 @@ org.springframework.data.domain.Pageable 传递给存储库方法。
 
  
 
-## 问题十二 
-
- 
-
-什么是 Swagger？你用 Spring Boot 实现了它吗？ 
+## 什么是 Swagger？你用 Spring Boot 实现了它吗？ 
 
  
 
@@ -188,11 +152,7 @@ Swagger 广泛用于可视化 API，使用 Swagger UI 为前端开发人员提�
 
  
 
-## 问题十三 
-
- 
-
-什么是 Spring Profiles？ 
+## 什么是 Spring Profiles？ 
 
  
 
@@ -200,11 +160,7 @@ Spring   Profiles 允许用户根据配置文件（dev，test，prod 等）来�
 
  
 
-## 问题十四 
-
- 
-
-什么是 Spring Batch？ 
+## 什么是 Spring Batch？ 
 
  
 
@@ -214,11 +170,7 @@ Spring Boot Batch 提供可重用的函数，这些函数在处理大量记录�
 
  
 
-## 问题十五 
-
- 
-
-什么是 FreeMarker 模板？ 
+## 什么是 FreeMarker 模板？ 
 
  
 
@@ -226,11 +178,7 @@ FreeMarker 是一个基于 Java 的模板引擎，最初专注于使用 MVC 软�
 
  
 
-## 问题十六 
-
- 
-
-如何使用 Spring Boot 实现异常处理？ 
+## 如何使用 Spring Boot 实现异常处理？ 
 
  
 
@@ -240,11 +188,7 @@ ControlerAdvice 类，来处理控制器类抛出的所有异常。
 
  
 
-## 问题十七 
-
- 
-
-您使用了哪些 starter maven 依赖项？ 
+## 您使用了哪些 starter maven 依赖项？ 
 
  
 
@@ -260,11 +204,7 @@ spring-boot-starter-web
 
  
 
-## 问题十八 
-
- 
-
-什么是 CSRF 攻击？ 
+## 什么是 CSRF 攻击？ 
 
  
 
@@ -272,11 +212,7 @@ CSRF 代表跨站请求伪造。这是一种攻击，迫使最终用户在当前
 
  
 
-## 问题十九 
-
- 
-
-什么是 WebSockets？ 
+## 什么是 WebSockets？ 
 
  
 
@@ -294,11 +230,7 @@ Light -与 http 相比，WebSocket 消息数据交换要轻得多。
 
  
 
-## 问题二十 
-
- 
-
-什么是 AOP？ 
+## 什么是 AOP？ 
 
  
 
@@ -306,11 +238,7 @@ Light -与 http 相比，WebSocket 消息数据交换要轻得多。
 
  
 
-## 问题二十一 
-
- 
-
-什么是 Apache Kafka？ 
+## 什么是 Apache Kafka？ 
 
  
 
@@ -318,11 +246,7 @@ Apache Kafka 是一个分布式发布 - 订阅消息系统。它是一个可扩�
 
  
 
-## 问题二十二 
-
- 
-
-我们如何监视所有 Spring Boot 微服务？ 
+## 我们如何监视所有 Spring Boot 微服务？ 
 
  
 
