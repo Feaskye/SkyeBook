@@ -6,12 +6,12 @@
     git config --local http.proxy 127.0.0.1:7890
     git config --local https.proxy 127.0.0.1:7890
 
-    git config --global http.sslVerify "false"
+    git config --local http.sslVerify "false"
 
-    git config --global --unset credential.helper
+    git config --local --unset credential.helper
 
     --最后一个生效
-    git config --global http.sslBackend "openssl"
+    git config --local http.sslBackend "openssl"
 
 
     查看：https://blog.csdn.net/qq_37555071/article/details/114260533
@@ -23,6 +23,11 @@
     3:如下命令
     git config lfs.https://github.com/Feaskye/feaskye.github.io.git/info/lfs.access basic
     git config lfs.https://github.com/Feaskye/feaskye.github.io.git/info/lfs.locksverify false
+
+
+#SwitchyOmega 配置地址
+https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+temp:https://suo.y-t-/-CKU0CnU
 
 
 
