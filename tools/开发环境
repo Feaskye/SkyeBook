@@ -1,0 +1,8 @@
+IntelliJ IDEA   E:\Program Files\ideaIU-2020.1\bin
+
+
+classpath      .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+JAVA_HOME      D:\Program Files\Java\jdk1.8.0_181
+MAVEN_HOME     D:\Program Files\Java\Maven
+Path           D:\Program Files\Java\AdoptOpenJDK_jdk-8.0.292.10-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;
+               %JAVA_HOME%\bin;%CXF_HOME%\bin;%MAVEN_HOME%\bin;F:\ProgramFiles\Git\cmd
