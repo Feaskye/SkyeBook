@@ -1,0 +1,87 @@
+参考网址：https://www.cnblogs.com/liaojie970/p/7058543.html
+
+## 一：关键代码：
+run --- > 新建maven ---->输入命令 mybatis-generator:generate  -e
+
+## 二：pom引入maven plugin
+###  1、mybatis-generator中加入generatorConfig.xml配置
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+    <generatorConfiguration>
+    <!-- 数据库连接驱动包 -->
+    <classPathEntry
+            location="F:\UserProgramFiles\.m2\repository\mysql\mysql-connector-java\8.0.12\mysql-connector-java-8.0.12.jar"/>
+    <context id="mysqlGen" targetRuntime="MyBatis3Simple">
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <commentGenerator>
+            <property name="javaFileEncoding" value="UTF-8"/>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 数据库连接配置 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                    connectionURL="jdbc:mysql://192.168.10.10:3306/dev_yuecheng"
+                    userId="root"
+                    password="Toy@10.2021-admin"/>
+        <!-- 实体类配置 -->
+        <javaModelGenerator targetPackage="com.lyzh.hw.fl.entity"
+                        targetProject="E:\workSpace\saas-dev-branches\online_business\fl-business\base\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="false"/>
+            <property name="rootClass" value="com.lyzh.msa.framework.common.base.BaseEntity"/>
+        </javaModelGenerator>
+        <!-- Mapping.xml 配置 -->
+        <sqlMapGenerator targetPackage="console"
+                    targetProject="E:\workSpace\saas-dev-branches\online_business\fl-business\base\src\main\resources\mybatis\mapper">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- DAO 接口配置 -->
+        <javaClientGenerator targetPackage="com.lyzh.msa.dao.dao.fl"
+                        targetProject="E:\workSpace\saas-dev-branches\online_business\fl-business\dao\src\main\java"
+                        type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+            <property name="rootInterface" value="com.lyzh.msa.dao.base.dao.BaseDAO"/>
+        </javaClientGenerator>
+        <!-- 表名配置, 多个实体类复制多份配置 -->
+        <table tableName="h_yuecheng_recycle_analysis"
+                domainObjectName="YuechengRecycleAnalysis"
+                mapperName="YuechengRecycleAnalysisDAO"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableDeleteByExample="false"
+                enableSelectByExample="false"
+                selectByExampleQueryId="false">
+        </table>
+
+
+
+    </context>
+    </generatorConfiguration>
+## 2：pom:
+    <plugin>
+    <groupId>org.mybatis.generator</groupId>
+    <artifactId>mybatis-generator-maven-plugin</artifactId>
+    <version>1.3.7</version>
+    <configuration>
+        <configurationFile>src/main/resources/mybatis-generator/generatorConfig.xml</configurationFile>
+        <verbose>true</verbose>
+        <overwrite>true</overwrite>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.7</version>
+        </dependency>
+    </dependencies>
+    </plugin>
+## 3:idea右侧maven执行plugin
+    mybatis-generator:generate
+
+    ![avatar](idea_MyBatisgenerator.png)
+
