@@ -25,9 +25,9 @@ run --- > 新建maven ---->输入命令 mybatis-generator:generate  -e
         </commentGenerator>
         <!-- 数据库连接配置 -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                    connectionURL="jdbc:mysql://192.168.10.10:3306/dev_yuecheng"
+                    connectionURL="jdbc:mysql://192.168.1.10:3306/test"
                     userId="root"
-                    password="Toy@10.2021-admin"/>
+                    password="123456"/>
         <!-- 实体类配置 -->
         <javaModelGenerator targetPackage="com.lyzh.hw.fl.entity"
                         targetProject="E:\workSpace\saas-dev-branches\online_business\fl-business\base\src\main\java">
@@ -48,9 +48,9 @@ run --- > 新建maven ---->输入命令 mybatis-generator:generate  -e
             <property name="rootInterface" value="com.lyzh.msa.dao.base.dao.BaseDAO"/>
         </javaClientGenerator>
         <!-- 表名配置, 多个实体类复制多份配置 -->
-        <table tableName="h_yuecheng_recycle_analysis"
-                domainObjectName="YuechengRecycleAnalysis"
-                mapperName="YuechengRecycleAnalysisDAO"
+        <table tableName="h_recycle_analysis"
+                domainObjectName="RecycleAnalysis"
+                mapperName="RecycleAnalysisDAO"
                 enableCountByExample="false"
                 enableUpdateByExample="false"
                 enableDeleteByExample="false"
