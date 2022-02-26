@@ -80,8 +80,9 @@ run --- > 新建maven ---->输入命令 mybatis-generator:generate  -e
         </dependency>
     </dependencies>
     </plugin>
-## 3:idea右侧maven执行plugin
+## 3:idea右侧maven运行plugin
+
     mybatis-generator:generate
 
-    ![avatar](idea_MyBatisgenerator.png)
+![avatar](idea_MyBatisgenerator.png)
 
