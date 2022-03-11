@@ -1,9 +1,9 @@
 参考网址：https://www.cnblogs.com/liaojie970/p/7058543.html
 
-## 一：关键代码：
+## 方案一：idea中命令方式：
 run --- > 新建maven ---->输入命令 mybatis-generator:generate  -e
 
-## 二：pom引入maven plugin
+## 方案二：idea中功能内 pom引入maven plugin
 ###  1、mybatis-generator中加入generatorConfig.xml配置
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE generatorConfiguration
