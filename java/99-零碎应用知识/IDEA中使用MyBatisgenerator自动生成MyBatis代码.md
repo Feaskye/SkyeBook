@@ -29,28 +29,28 @@ run --- > 新建maven ---->输入命令 mybatis-generator:generate  -e
                     userId="root"
                     password="123456"/>
         <!-- 实体类配置 -->
-        <javaModelGenerator targetPackage="com.lyzh.hw.fl.entity"
-                        targetProject="E:\workSpace\saas-dev-branches\online_business\fl-business\base\src\main\java">
+        <javaModelGenerator targetPackage="com.demo.hw.fl.entity"
+                        targetProject="E:\workSpace\online_business\base\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="false"/>
-            <property name="rootClass" value="com.lyzh.msa.framework.common.base.BaseEntity"/>
+            <property name="rootClass" value="com.demo.msa.framework.common.base.BaseEntity"/>
         </javaModelGenerator>
         <!-- Mapping.xml 配置 -->
         <sqlMapGenerator targetPackage="console"
-                    targetProject="E:\workSpace\saas-dev-branches\online_business\fl-business\base\src\main\resources\mybatis\mapper">
+                    targetProject="E:\workSpace\online_business\base\src\main\resources\mybatis\mapper">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!-- DAO 接口配置 -->
-        <javaClientGenerator targetPackage="com.lyzh.msa.dao.dao.fl"
-                        targetProject="E:\workSpace\saas-dev-branches\online_business\fl-business\dao\src\main\java"
+        <javaClientGenerator targetPackage="com.demo.msa.dao.dao.fl"
+                        targetProject="E:\workSpace\online_business\dao\src\main\java"
                         type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
-            <property name="rootInterface" value="com.lyzh.msa.dao.base.dao.BaseDAO"/>
+            <property name="rootInterface" value="com.demo.msa.dao.base.dao.BaseDAO"/>
         </javaClientGenerator>
         <!-- 表名配置, 多个实体类复制多份配置 -->
-        <table tableName="h_recycle_analysis"
-                domainObjectName="RecycleAnalysis"
-                mapperName="RecycleAnalysisDAO"
+        <table tableName="h_demo_analysis"
+                domainObjectName="DemoAnalysis"
+                mapperName="DemoAnalysisDAO"
                 enableCountByExample="false"
                 enableUpdateByExample="false"
                 enableDeleteByExample="false"
