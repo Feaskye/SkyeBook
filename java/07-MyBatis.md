@@ -680,3 +680,36 @@ Mybatis仅可以编写针对ParameterHandler、ResultSetHandler、StatementHandl
 2）二级缓存与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap 存储， 不同在于其存储作用域为 Mapper(Namespace)，并且可自定义存储源，如 Ehcache。默 认不打开二级缓存，要开启二级缓存，使用二级缓存属性类需要实现Serializable序列化接 口(可用来保存对象的状态),可在它的映射文件中配置<cache/> ；
 
 3）对于缓存数据更新机制，当某一个作用域(一级缓存 Session/二级缓存Namespaces)的 进行了C/U/D 操作后，默认该作用域下所有 select 中的缓存将被 clear。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 其他
+
+
+
+**mybatis sql中使用**
+
+1）转换成字符串：DATE_FORMAT(nowdate,'%Y-%m-%d %H:%i:%s') 
