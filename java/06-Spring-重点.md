@@ -670,33 +670,55 @@ Spring事务的本质其实就是数据库对事务的支持，没有数据库�
 
 spring是无法提供事务功能的。真正的数据库层的事务提交和回滚是通过 binlog或者redo log实现的。
 
-## 说一下Spring的事务传播行为
+## 说一下Spring的事务传播行为-必会
 
-spring事务的传播行为说的是，当多个事务同时存在的时候，spring如何处理这些事务的行为。
+​		多个事务方法相互调用时，事务如何在这些方法之间进行传播,spring中提供了7中不同的传播特性，来保证事务的正常执行：
 
-① PROPAGATION_REQUIRED：如果当前没有事务，就创建一个新事务，如果当前存在事务，就加入该事务，该设置是最常用的设置。
+​		REQUIRED：默认的传播特性，如果当前没有事务，则新建一个事务，如果当前存在事务，则加入这个事务
 
-② PROPAGATION_SUPPORTS：支持当前事务，如果当前存在事务，就加入该事务，如果当前不存在事务，就以非事务执行。
+​		SUPPORTS：当前存在事务，则加入当前事务，如果当前没有事务，则以非事务的方式执行
 
-③ PROPAGATION_MANDATORY：支持当前事务，如果当前存在事务，就加入该事务，如果当前不存在事务，就抛出异常。
+​		MANDATORY：当前存在事务，则加入当前事务，如果当前事务不存在，则抛出异常
 
-④ PROPAGATION_REQUIRES_NEW：创建新事务，无论当前存不存在事务，都创建新事务。
+​		REQUIRED_NEW：创建一个新事务，如果存在当前事务，则挂起改事务
 
-⑤ PROPAGATION_NOT_SUPPORTED：以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。
+​		NOT_SUPPORTED：以非事务方式执行，如果存在当前事务，则挂起当前事务
 
-⑥ PROPAGATION_NEVER：以非事务方式执行，如果当前存在事务，则抛出异常。
+​		NEVER：不使用事务，如果当前事务存在，则抛出异常
 
-⑦ PROPAGATION_NESTED：如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则按REQUIRED属性执行。
+​		NESTED：如果当前事务存在，则在嵌套事务中执行，否则REQUIRED的操作一样
 
-## 说一下 spring 的事务隔离？
+​		NESTED和REQUIRED_NEW的区别：
+
+​		REQUIRED_NEW是新建一个事务并且新开始的这个事务与原有事务无关，而NESTED则是当前存在事务时会开启一个嵌套事务，在NESTED情况下，父事务回滚时，子事务也会回滚，而REQUIRED_NEW情况下，原有事务回滚，不会影响新开启的事务
+
+​		NESTED和REQUIRED的区别：
+
+​		REQUIRED情况下，调用方存在事务时，则被调用方和调用方使用同一个事务，那么被调用方出现异常时，由于共用一个事务，所以无论是否catch异常，事务都会回滚，而在NESTED情况下，被调用方发生异常时，调用方可以catch其异常，这样只有子事务回滚，父事务不会回滚。
+
+![事务传播机制](06-Spring面试题（2020最新版）-重点.assets/事务传播机制.png)
+
+## spring 的事务隔离？-必会
 
 spring 有五大隔离级别，默认值为 ISOLATION_DEFAULT（使用数据库的设置），其他四个隔离级别和数据库的隔离级别一致：
 
 \1.    ISOLATION_DEFAULT：用底层数据库的设置隔离级别，数据库设置的是什么我就用什么；
 
-\2.    ISOLATION_READ_UNCOMMITTED：未提交读，最低隔离级别、事务未提交前，就可被其他事务读取（会出现幻读、脏读、不可重复读）； 3. ISOLATION_READ_COMMITTED：提交读，一个事务提交后才能被其他事务读取到（会造成幻读、不可重复读），SQL server 的默认级别；
+\2.    ISOLATION_READ_UNCOMMITTED：未提交读，最低隔离级别、事务未提交前，就可被其他事务读取（会出现幻读、脏读、不可重复读）； 
+
+![read_un](06-Spring面试题（2020最新版）-重点.assets/read_un.png)
+
+\3. ISOLATION_READ_COMMITTED：提交读，一个事务提交后才能被其他事务读取到（会造成幻读、不可重复读），SQL server 的默认级别；
+
+![read_c](06-Spring面试题（2020最新版）-重点.assets/read_c.png)
 
 \4.    ISOLATION_REPEATABLE_READ：可重复读，保证多次读取同一个数据时，其值都和事务开始时候的内容是一致，禁止读取到别的事务未提交的数据（会造成幻读），MySQL 的默认级别；
+
+![repeatable](06-Spring面试题（2020最新版）-重点.assets/repeatable.png)
+
+造成幻读如下：
+
+![repeat_huandu](06-Spring面试题（2020最新版）-重点.assets/repeat_huandu.png)
 
 \5.    ISOLATION_SERIALIZABLE：序列化，代价最高最可靠的隔离级别，该隔离级别能防止脏读、不可重复读、幻读。
 
