@@ -473,6 +473,21 @@ Spring 容器能够自动装配相互合作的bean，这意味着容器不需要
 
 Factory中注入的方式自动搞定bean之间的依赖关系。自动装配可以设置在每个bean上，也可以设定在特定的bean上。
 
+在Spring中有三种装配的方式：
+
+  ①在xml中显式的配置 
+  ```
+    <bean id="people" class="com.demo.People" autowire="byType">
+  ```
+
+  ②在java中显式的装配
+    @Bean
+      public People people(){}
+
+  ③隐式的自动装配Bean [重要]
+    @Component//Spring自动创建bean，以及使用@ComponentScan
+    public class CDPlayer{}
+
 ###  解释不同方式的自动装配，spring 自动装配 bean 有哪些方式？
 
 在spring中，对象无需自己查找或创建与其关联的其他对象，由容器负责把需要相互协作的对象引用赋予各个对象，使用autowire来配置自动装载模式。
