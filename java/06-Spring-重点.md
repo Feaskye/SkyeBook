@@ -790,7 +790,7 @@ proxy是最终生成的代理实例; method 是被代理目标实例的某个具
 
 Advice + Target Object = Proxy
 
-## 解释一下Spring AOP里面的几个名词
+## 解释一下Spring AOP里面的几个名词 - 必会
 
 （1）  切面（Aspect）：切面是通知和切点的结合。通知和切点共同定义了切面的全部内容。 在Spring AOP中，切面可以使用通用类（基于模式的风格） 或者在普通类中以 @AspectJ 注解来实现。
 
@@ -814,7 +814,7 @@ Advice + Target Object = Proxy
 -  类加载期：切面在目标类加载到JVM时被织入。需要特殊的类加载器，它可以在目标类被引入应用之前增强该目标类的字节码。AspectJ5的加载时织入就支持以这种方式织入切面。
 -  运行期：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP 容器会为目标对象动态地创建一个代理对象。SpringAOP就是以这种方式织入切面。
 
-## Spring在运行时通知对象
+## Spring在运行时通知对象  - 必会
 
 通过在代理类中包裹切面，Spring在运行期把切面织入到Spring管理的bean
 
@@ -834,7 +834,7 @@ Spring只支持方法级别的连接点
 
 横切关注点（cross-cutting concern）是一个关注点，此关注点是整个应用都会使用的功能，并影响整个应用，比如日志，安全和数据传输，几乎应用的每个模块都需要的功能。因此这些都属于横切关注点。
 
-## Spring通知有哪些类型？
+## Spring通知有哪些类型？  - 必会
 
 在AOP术语中，切面的工作被称为通知，实际上是程序执行时要通过
 
@@ -864,7 +864,7 @@ afterReturning
 
 afterThrowing:异常发生 java.lang.RuntimeException: 异常发生
 
-## 什么是切面 Aspect？
+## 什么是切面 Aspect？  - 必会
 
 aspect 由 pointcount 和 advice 组成，切面是通知和切点的结合。 它既包含了横切逻辑的定义, 也包括了连接点的定义. Spring AOP 就是负责实施切面的框架, 它将切面所定义的横切逻辑编织到切面所指定的连接点中.
 

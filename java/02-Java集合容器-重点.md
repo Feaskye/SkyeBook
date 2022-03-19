@@ -68,7 +68,7 @@ Map是一个键值对集合，存储键、值和之间的映射。 Key无序，�
 
 Map 的常用实现类：HashMap、TreeMap、HashTable、LinkedHashMap、 ConcurrentHashMap
 
-## 集合框架底层数据结构 
+## 集合框架底层数据结构 - 必会
 
 Collection 
 
@@ -402,6 +402,40 @@ hashCode（）与equals（）的相关规定：
 | 调用  put（）向  map中添加元素                             | 调用  add（）  方法向Set  中添加元素                         |
 | HashMap  使用键  （Key）计算  Hashcode                     | HashSet 使用成员对象来计  算  hashcode 值，对于两个对象  来说  hashcode 可能相  同，所以  equals()方法用来判断对象的相等性，如果两个对象不同的话，那  么返回  false |
 | HashMap 相对于  HashSet 较快，因为它是使用唯一的键获取对象 | HashSet 较  HashMap  来说比较慢                              |
+
+
+## JUC源码包
+java.util.concurrent这个包里面的代码结构如下所示，在这里，JDK版本是jdk1.8.0_40
+
+![juc](02-Java集合容器面试题（2020最新版）-重点.assets/juc.png)
+
+浏览一下后，这个包我个人觉得大致可以分为五个部分：
+
+#### 一、atomic类
+
+集中在Atomic包下面实现了原子化操作的数据类型，包括 Boolean, Integer, Long, 和Referrence这四种类型以及这四种类型的数组类型。
+
+#### 二、锁类
+
+这部分都被放在lock这个包里面，实现了并发操作中的几种类型的锁，如ReentrantLock类、ReentrantReadWriteLock类等
+
+#### 三、集合框架的并发类
+
+这部分主要介绍实现线程安全的集合类，如CopyOnWriteArrayList类、CopyOnWriteArraySet类等
+
+#### 四、线程管理类
+
+这部分主要是对线程集合的管理的实现，有CyclicBarrier, CountDownLatch,Exchanger等一些类。
+
+ 
+
+五、阻塞队列类
+
+阻塞队列是线程池实现的重要组成部分，如LinkedBlockingQueue类、PriorityBlockingQueue类等
+
+
+
+
 
 ## Queue
 
