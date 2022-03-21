@@ -92,7 +92,7 @@ Spring 提供了以下5种标准的事件：
 4. 上下文关闭事件（ContextClosedEvent）：当ApplicationContext被 关闭时触发该事件。容器被关闭时，其管理的所有单例Bean都被销毁。
 5. 请求处理事件（RequestHandledEvent）：在Web应用中，当一个 http请求（request）结束触发该事件。如果一个bean实现了 ApplicationListener接口，当一个ApplicationEvent 被发布以后，bean 会自动被通知。 
 
-## 9. Spring 应用程序有哪些不同组件？ 
+## 9. Spring 应用程序有哪些不同组件？  - 必会
 
 Spring 应用一般有以下组件： 
 
@@ -890,3 +890,21 @@ BeanNameAutoProxyCreator
 DefaultAdvisorAutoProxyCreator
 
 Metadata autoproxying
+
+
+
+
+
+## spring中@Transactional注解事务的原理
+
+### 注解原理
+
+![transactional](06-Spring面试题（2020最新版）-重点.assets/transactional_1.png)
+![transactional](06-Spring面试题（2020最新版）-重点.assets/transactional_2.png)
+注：参考-https://blog.csdn.net/baidu_39322753/article/details/100073169
+
+### 事务失效的场景有哪些
+
+![un_transactional](06-Spring面试题（2020最新版）-重点.assets/un_transactional.png)
+参考：https://www.bilibili.com/video/BV1fR4y1u7N8/?spm_id_from=333.788
+

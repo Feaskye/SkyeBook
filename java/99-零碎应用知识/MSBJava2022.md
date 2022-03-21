@@ -1452,7 +1452,7 @@ TransactionInterceptor
 10、DispatcherServlet根据视图解析器解析的视图结果，调用具体的视图，进行试图渲染
 11、将响应数据返回给客户端
 
-# springmvc的九大组件有哪些？
+# springmvc的九大组件有哪些？ - 必会
 
 1.HandlerMapping
 根据request找到相应的处理器。因为Handler（Controller）有两种形式，一种是基于类的Handler，另一种是基于Method的Handler（也就是我们常用的）
