@@ -897,14 +897,30 @@ Metadata autoproxying
 
 ## spring中@Transactional注解事务的原理
 
-### 注解原理
+### @Transactional注解事务的原理
+​		在使用Spring框架的时候，可以有两种事务的实现方式，一种是编程式事务，有用户自己通过代码来控制事务的处理逻辑，还有一种是声明式事务，通过@Transactional注解来实现。
 
+​		其实事务的操作本来应该是由数据库来进行控制，但是为了方便用户进行业务逻辑的操作，spring对事务功能进行了扩展实现，一般我们很少会用编程式事务，更多的是通过添加@Transactional注解来进行实现，当添加此注解之后事务的自动功能就会关闭，有spring框架来帮助进行控制。
+
+​		其实事务操作是AOP的一个核心体现，当一个方法添加@Transactional注解之后，spring会基于这个类生成一个代理对象，会将这个代理对象作为bean，当使用这个代理对象的方法的时候，如果有事务处理，那么会先把事务的自动提交给关系，然后去执行具体的业务逻辑，如果执行逻辑没有出现异常，那么代理逻辑就会直接提交，如果出现任何异常情况，那么直接进行回滚操作，当然用户可以控制对哪些异常进行回滚操作。
+
+TransactionInterceptor
 ![transactional](06-Spring面试题（2020最新版）-重点.assets/transactional_1.png)
 ![transactional](06-Spring面试题（2020最新版）-重点.assets/transactional_2.png)
 注：参考-https://blog.csdn.net/baidu_39322753/article/details/100073169
 
 ### 事务失效的场景有哪些
+​		1、bean对象没有被spring容器管理
 
-![un_transactional](06-Spring面试题（2020最新版）-重点.assets/un_transactional.png)
-参考：https://www.bilibili.com/video/BV1fR4y1u7N8/?spm_id_from=333.788
+​		2、方法的访问修饰符不是public
+
+​		3、自身调用问题
+
+​		4、数据源没有配置事务管理器
+
+​		5、数据库不支持事务
+
+​		6、异常被捕获
+
+​		7、异常类型错误或者配置错误
 
