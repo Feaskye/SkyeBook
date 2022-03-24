@@ -72,7 +72,8 @@ Spring的MVC框架是围绕DispatcherServlet来设计的，它用来处理所有
 （10）DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中） 
 
 （11）DispatcherServlet响应用户。
-![SpringMVC工作流程](05-Spring MVC面试题（2020最新版）.assets/SpringMVC工作流程.png)
+
+![](05-Spring%20MVC面试题（2020最新版）.assets/SpringMVC工作流程.png)
 
 # MVC框架
 

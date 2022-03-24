@@ -757,6 +757,38 @@ cat 主要有三大功能：
 4	Hello
 ```
 
+（5） 查询文件关键词：
+```
+cat 2022-01-12.info.log | grep 'Controller'
+
+cat -n 100 2022-01-13.info.log | grep '请求'
+```
+（6） 查看最后100行的数据
+  ```
+  cat filename | tail -n 100
+  ```
+（7）查看100到300行的数据
+  ```
+  cat filename | head -n 300 | tail -n +100
+  ```
+（8）cat filename 打印文件所有内容
+
+（9）tail -n 100 打印文件最后100行的数据
+```
+        cat filename tail -n 100
+```
+
+（10）tail -n +100 打印文件第100行开始以后的内容
+```
+       cat filename tail -n +100 
+```
+
+（11）head -n 100 打印前100的内容  
+```
+       cat filename head -n 100
+```
+
+
 ## chmod 命令
 
 Linux/Unix 的文件调用权限分为三级 : 文件拥有者、群组、其他。利用 chmod 可以控制文件如何被他人所调用。

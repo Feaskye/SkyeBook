@@ -481,13 +481,17 @@ Factory中注入的方式自动搞定bean之间的依赖关系。自动装配可
   ```
 
   ②在java中显式的装配
+  ```
     @Bean
       public People people(){}
+  ```
 
   ③隐式的自动装配Bean [重要]
+  ```
     @Component//Spring自动创建bean，以及使用@ComponentScan
     public class CDPlayer{}
-
+  ```
+  
 ###  解释不同方式的自动装配，spring 自动装配 bean 有哪些方式？
 
 在spring中，对象无需自己查找或创建与其关联的其他对象，由容器负责把需要相互协作的对象引用赋予各个对象，使用autowire来配置自动装载模式。
