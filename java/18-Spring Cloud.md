@@ -179,7 +179,9 @@ SpringBoot专注于快速、方便的开发单个微服务个体，SpringCloud�
 
 Spring Cloud 和dubbo区别?
 
-（1）服务调用方式 dubbo是RPC springcloud Rest Api （2）注册中心,dubbo 是zookeeper springcloud是eureka，也可以是 zookeeper
+（1）服务调用方式 dubbo是RPC springcloud Rest Api 
+
+（2）注册中心,dubbo 是zookeeper springcloud是eureka，也可以是 zookeeper
 
 （3）服务网关,dubbo本身没有实现，只能通过其他第三方技术整合， springcloud有Zuul路由网关，作为路由服务器，进行消费者的请求分
 

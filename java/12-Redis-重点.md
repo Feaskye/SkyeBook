@@ -864,3 +864,12 @@ Redis如何做大量数据插入？ Redis2.6开始redis-cli支持一种新的被
 ## Redis回收使用的是什么算法？
 
 LRU算法
+
+
+## Redis 分布式锁过期了，但业务还没有执行完，怎么办？
+   - 续约，用watchdog监控；
+   - 或用redisson分布式锁方案（定时器使用的是netty-common包中的HashedWheelTime来实现的）；
+   - 若机器宕机，使用哨兵机制；
+   - springboot2.0默认使用redis客户端是Lettuce 是否可行？ 无类似watchdog机制，需要自己业务实现。
+参考网址：https://blog.csdn.net/qq_36594703/article/details/123500652
+

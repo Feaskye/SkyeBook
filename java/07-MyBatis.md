@@ -673,7 +673,7 @@ Mybatis仅可以编写针对ParameterHandler、ResultSetHandler、StatementHandl
 
 **缓存**
 
-**Mybatis的一级、二级缓存**
+**Mybatis的一级、二级缓存**  -必会
 
 1）一级缓存: 基于 PerpetualCache 的 HashMap 本地缓存，其存储作用域为 Session， 当 Session flush 或 close 之后，该 Session 中的所有 Cache 就将清空，默认打开一级缓 存。
 

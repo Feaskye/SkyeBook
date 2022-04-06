@@ -230,6 +230,20 @@ BeanFactory和ApplicationContext都支持BeanPostProcessor、
 
 BeanFactoryPostProcessor的使用，但两者之间的区别是：BeanFactory需要手动注册，而ApplicationContext则是自动注册。
 
+## ※ BeanFactory和FactoryBean的区别 -必会
+相同点：都是用来创建bean对象的
+
+不同点：使用BeanFactory创建对象的时候，必须要遵循严格的生命周期流程；简单创建流程并交给spring来管理则用FacoryBean
+       isSingleton 是否是单例对象
+       getObjectType获取返回对象的类型
+       getObject 自定义创建对象的过程(new 反射 动态代理)
+
+
+FactoryBean 是spirng提供的工厂bean的一个接口，
+FactoryBean 接口提供三个方法，用来创建对象，
+FactoryBean 具体返回的对象是由getObject 方法决定的。
+比如：SchedulerFactoryBean
+
 ## Spring 如何设计容器的，BeanFactory和 ApplicationContext的关系详解
 
 Spring 作者 Rod Johnson 设计了两个接口用以表示容器。
@@ -491,7 +505,7 @@ Factory中注入的方式自动搞定bean之间的依赖关系。自动装配可
     @Component//Spring自动创建bean，以及使用@ComponentScan
     public class CDPlayer{}
   ```
-  
+
 ###  解释不同方式的自动装配，spring 自动装配 bean 有哪些方式？
 
 在spring中，对象无需自己查找或创建与其关联的其他对象，由容器负责把需要相互协作的对象引用赋予各个对象，使用autowire来配置自动装载模式。
@@ -927,4 +941,22 @@ TransactionInterceptor
 ​		6、异常被捕获
 
 ​		7、异常类型错误或者配置错误
+
+
+
+### 循环依赖的一级缓存二级缓存三级缓存 -必会
+  以A、B对象为例:
+
+  ![](06-Spring面试题（2020最新版）-重点.assets/bean_01.png)
+  ![123cache](07-MyBatis面试题（2020最新版）.assets/123cache.png)
+  ![](06-Spring面试题（2020最新版）-重点.assets/bean02.png)
+  ![](06-Spring面试题（2020最新版）-重点.assets/bean03.png)
+
+
+### 缓存的放置时间和删除时间
+三级缓存：createBeanInstance之后：addSingletonFactory
+
+二级缓存:第一次从三级缓存确定对象是代理对象还是普通对象的时候，同时删除三级缓存 getSingleton
+
+一级缓存：生成完整对象之后放到一级缓存，删除二三级缓存addSingleton
 
