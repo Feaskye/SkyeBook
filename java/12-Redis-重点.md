@@ -871,5 +871,6 @@ LRU算法
    - 或用redisson分布式锁方案（定时器使用的是netty-common包中的HashedWheelTime来实现的）；
    - 若机器宕机，使用哨兵机制；
    - springboot2.0默认使用redis客户端是Lettuce 是否可行？ 无类似watchdog机制，需要自己业务实现。
+
 参考网址：https://blog.csdn.net/qq_36594703/article/details/123500652
 

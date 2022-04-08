@@ -923,8 +923,10 @@ Metadata autoproxying
 ​		其实事务操作是AOP的一个核心体现，当一个方法添加@Transactional注解之后，spring会基于这个类生成一个代理对象，会将这个代理对象作为bean，当使用这个代理对象的方法的时候，如果有事务处理，那么会先把事务的自动提交给关系，然后去执行具体的业务逻辑，如果执行逻辑没有出现异常，那么代理逻辑就会直接提交，如果出现任何异常情况，那么直接进行回滚操作，当然用户可以控制对哪些异常进行回滚操作。
 
 TransactionInterceptor
+
 ![transactional](06-Spring面试题（2020最新版）-重点.assets/transactional_1.png)
 ![transactional](06-Spring面试题（2020最新版）-重点.assets/transactional_2.png)
+
 注：参考-https://blog.csdn.net/baidu_39322753/article/details/100073169
 
 ### 事务失效的场景有哪些
@@ -932,7 +934,7 @@ TransactionInterceptor
 
 ​		2、方法的访问修饰符不是public
 
-​		3、自身调用问题
+​		3、自身调用问题（同一个类中方法调用，导致 @Transactional 失效；）
 
 ​		4、数据源没有配置事务管理器
 
@@ -940,7 +942,7 @@ TransactionInterceptor
 
 ​		6、异常被捕获
 
-​		7、异常类型错误或者配置错误
+​		7、异常类型错误或者配置错误（注解属性 propagation或rollbackFor 设置错误）
 
 
 
@@ -960,3 +962,22 @@ TransactionInterceptor
 
 一级缓存：生成完整对象之后放到一级缓存，删除二三级缓存addSingleton
 
+
+
+## 解决长事务问题的解决方案
+- 方案一：单独将事务放到另一个类
+- 方案二：启动类添加 @EnableAspectJAutoProxy(exposeProxy = true)，方法内使用 AopContext.currentProxy() 获得代理类，使用事务。
+  ```java
+  //SpringBootApplication.java
+  @EnableAspectJAutoProxy(exposeProxy = true)
+  @SpringBootApplication
+  public class SpringBootApplication {}
+
+
+  //OrderService.java
+  public void createOrder(OrderCreateDTO createDTO){
+      OrderService orderService = (OrderService)AopContext.currentProxy();
+      orderService.saveData(createDTO);
+  }
+
+  ```

@@ -3317,10 +3317,10 @@ JVM对字节码的规范是有要求的，要求每一个字节码文件都要�
       1. 方法区中常量引用的对象
       1. 本地方法栈中（即一般说的native方法）引用的对象
 3. 此外，不同的引用类型的回收机制是不一样的
-   1. 强引用：通过关键字new的对象就是强引用对象，强引用指向的对象任何时候都不会被回收，宁愿OOM也不会回收。
-   1. 软引用：如果一个对象持有软引用，那么当JVM堆空间不足时，会被回收。一个类的软引用可以通过java.lang.ref.SoftReference持有。
-   1. 弱引用：如果一个对象持有弱引用，那么在GC时，只要发现弱引用对象，就会被回收。一个类的弱引用可以通过java.lang.ref.WeakReference持有。
-   1. 虚引用：几乎和没有一样，随时可以被回收。通过PhantomReference持有。
+   1. 强引用：通过关键字new的对象就是强引用对象，强引用指向的对象任何时候都不会被回收，宁愿OOM也不会回收。（比如：M m=new M()）
+   1. 软引用：如果一个对象持有软引用，那么当JVM堆空间不足时，会被回收。一个类的软引用可以通过java.lang.ref.SoftReference持有。（比如:缓存）
+   1. 弱引用：如果一个对象持有弱引用，那么在GC时，只要发现弱引用对象，就会被回收。一个类的弱引用可以通过java.lang.ref.WeakReference持有。（比如:ThreadLocal，可以get到）
+   1. 虚引用：几乎和没有一样，随时可以被回收。通过PhantomReference持有。（比如：管理堆外内存）
 
 
 
@@ -5417,7 +5417,7 @@ broker存储topic的数据。如果某topic有N个partition，集群有N个broke
 类似于数据库的表名
 
 3 Partition
-topic中的数据分割为一个或多个partition。每个topic至少有一个partition。每个partition中的数据使用多个segment文件存储。partition中的数据是有序的，不同partition间的数据丢失了数据的顺序。如果topic有多个partition，消费数据时就不能保证数据的顺序。在需要严格保证消息的消费顺序的场景下，需要将partition数目设为1。
+topic中的数据分割为一个或多个partition分区。每个topic至少有一个partition。每个partition中的数据使用多个segment文件存储。partition中的数据是有序的，不同partition间的数据丢失了数据的顺序。如果topic有多个partition，消费数据时就不能保证数据的顺序。在需要严格保证消息的消费顺序的场景下，需要将partition数目设为1。
 
 4 Producer
 生产者即数据的发布者，该角色将消息发布到Kafka的topic中。broker接收到生产者发送的消息后，broker将该消息追加到当前用于追加数据的segment文件中。生产者发送的消息，存储到一个partition中，生产者也可以指定数据存储的partition。
