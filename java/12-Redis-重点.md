@@ -872,5 +872,7 @@ LRU算法
    - 若机器宕机，使用哨兵机制；
    - springboot2.0默认使用redis客户端是Lettuce 是否可行？ 无类似watchdog机制，需要自己业务实现。
 
-参考网址：https://blog.csdn.net/qq_36594703/article/details/123500652
+参考网址：[点击](https://blog.csdn.net/qq_36594703/article/details/123500652)
 
+## 分布式redis锁的服务宕掉了
+多节点redis实现的分布式锁算法(RedLock):有效防止单点故障

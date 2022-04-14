@@ -316,3 +316,16 @@ Spring Cloud Gateway是Spring Cloud官方推出的第二代网关框架，取代
 使用了一个RouteLocatorBuilder的bean去创建路由，除了创建路由
 
 RouteLocatorBuilder可以让你添加各种predicates和filters，predicates断言的意思，顾名思义就是根据具体的请求的规则，由具体的route去处理，filters 是各种过滤器，用来对请求做各种判断和修改。
+
+
+
+
+
+## 分布式事务解决方案([三种案例](https://blog.csdn.net/woaitingting1985/article/details/115165415)) -必会
+- 方案一：两阶段提交协议2PC：prepare、commit/rollback
+
+    案例：[整合 Atomikos +mysql+mybatis+tomcat/jetty](https://mp.weixin.qq.com/s/maBgfIX7daJl2Pi0QASw9A)
+
+- 方案二：事务补偿（TCC）：try、commit、cancel（注意处理接口幂等问题）
+  
+- 方案三：消息队列实现最终一致：将分布式事务拆分成多个本地事务来完成，并且由消息队列异步协调完成
