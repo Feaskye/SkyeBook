@@ -50,3 +50,4 @@ u架构运维/elastalert监控ES日志.md
 u架构运维/mysql监控+prometheus+grafana.md
 u架构运维/zipkin+elk安装.md
 u架构运维/Grafana+prometheus实现主机监控.md
+tools/GitLab集成（CI_CD）Docker镜像构建.md
