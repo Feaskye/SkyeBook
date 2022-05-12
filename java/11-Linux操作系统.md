@@ -2111,3 +2111,15 @@ yum提供了查找、安装、删除某一个、一组甚至全部软件包的�
 ## unzip 命令
 
 解压 *.zip 文件：unzip test.zip 。查看 *.zip 文件的内容：unzip -l jasper.zip 。
+
+
+
+# 其他笔记
+## 其他命令
+
+### 网络network的ip等信息
+以docker容器的mysql57为例
+
+  docker inspect --format='{{json .NetworkSettings.Networks}}'  mysql57
+  
+  docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mysql57

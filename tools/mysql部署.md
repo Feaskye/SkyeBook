@@ -47,14 +47,51 @@ netstat -apn|grep 3306
 
 
 
+### [解决 ERROR 2002 (HY000): Can‘t connect to local MySQL server through socket ‘/tmp/mysql.sock‘ (2)超详细](https://blog.csdn.net/lzf_hlh/article/details/114599213)
+- 第一步：找到mysql的安装目录，我的是：/usr/local/mysql，不用去mysql底下的bin目录
+- 第二步：执行 sudo ./support-files/mysql.server start 
+- 完成以上两步，问题已解决
+    /usr/local/mysql ⌚ 20:21:58
+    $ sudo ./support-files/mysql.server start
+    Starting MySQL
+    .Logging to '/usr/local/mysql/data/bjhldeMacBook-Pro.local.err'.
+    . SUCCESS! 
+    
+    /usr/local/mysql ⌚ 20:22:03
+    $ mysql -u root -p                       
+    Enter password: 
+    Welcome to the MySQL monitor.  Commands end with ; or \g.
+    Your MySQL connection id is 8
+    Server version: 8.0.23 MySQL Community Server - GPL
+    
+    Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+    
+    Oracle is a registered trademark of Oracle Corporation and/or its
+    affiliates. Other names may be trademarks of their respective
+    owners.
+    
+    Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    
+    mysql> 
+
 
  ### mysql无法登录问题
-    到linux中执行mysql命令
-    update user set host='%' where user='root';
+- 》到linux中执行mysql命令：
 
-    》mysql5.7
+      mysql -u root -p
+
+      修改如下：
+      use mysql;
+      update user set host='%' where user='root';
+      如果报错不管，继续执行如下，看效果：
+      flush privileges;
+
+
+
+
+- 》mysql5.7
     update user set authentication_string=password('123456') where user='root';
-    》mysql5.7后
+- 》mysql5.7后
     alter user 'root'@'%' identified with mysql_native_password by '123456';
 
     flush privileges;

@@ -867,8 +867,8 @@ LRU算法
 
 
 ## Redis 分布式锁过期了，但业务还没有执行完，怎么办？
-   - 续约，用watchdog监控；
-   - 或用redisson分布式锁方案（定时器使用的是netty-common包中的HashedWheelTime来实现的）；
+   - 续约，用Redisson的watch dog监控；
+   - 或用Redisson+Redlock分布式锁算法方案（定时器使用的是netty-common包中的HashedWheelTime来实现的）；
    - 若机器宕机，使用哨兵机制；
    - springboot2.0默认使用redis客户端是Lettuce 是否可行？ 无类似watchdog机制，需要自己业务实现。
 
@@ -876,3 +876,5 @@ LRU算法
 
 ## 分布式redis锁的服务宕掉了
 多节点redis实现的分布式锁算法(RedLock):有效防止单点故障
+
+分布式锁全面总结：https://mp.weixin.qq.com/s/mh5TI-pm43M8fMbhibJAwA
