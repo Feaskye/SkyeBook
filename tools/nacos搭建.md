@@ -45,18 +45,76 @@
 
 
 ## 启动容器
-    docker  run \
-    --name nacos -d \
-    -p 8848:8848 \
-    --privileged=true \
-    --restart=always \
-    -e JVM_XMS=256m \
-    -e JVM_XMX=256m \
-    -e MODE=standalone \
-    -e PREFER_HOST_MODE=feaskye \
-    -v /home/nacos/logs:/home/nacos/logs \
-    -v /home/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties \
-    nacos/nacos-server
+- 2.0.3或2.1版本
+docker  run \
+--name nacos -d \
+-p 8848:8848 \
+-p 9848:9848 \
+-p 9849:9849 \
+--privileged=true \
+--restart=always \
+--net=host \
+-e JVM_XMS=256m \
+-e JVM_XMX=256m \
+-e MODE=standalone \
+-e PREFER_HOST_MODE=hostname \
+-v /home/nacos/logs:/home/nacos/logs \
+-v /home/nacos/data:/home/nacos/data \
+-v /home/nacos/conf:/home/nacos/conf \
+-v /home/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties \
+nacos/nacos-server
+
+
+
+
+- 配置有参版本
+docker  run \
+--name nacos -d \
+-p 8848:8848 \
+-p 9848:9848 \
+-p 9849:9849 \
+--privileged=true \
+--restart=always \
+-e JVM_XMS=256m \
+-e JVM_XMX=256m \
+-e MODE=standalone \
+-e PREFER_HOST_MODE=hostname \
+-e SPRING_DATASOURCE_PLATFORM=mysql \
+-e MYSQL_SERVICE_HOST=172.17.0.4 \
+-e MYSQL_SERVICE_PORT=3307 \
+-e MYSQL_SERVICE_DB_NAME=egg_config \
+-e MYSQL_SERVICE_USER=root \
+-e MYSQL_SERVICE_PASSWORD=123456 \
+-e MYSQL_DATABASE_NUM=1 \
+-v /home/nacos/logs:/home/nacos/logs \
+-v /home/nacos/data:/home/nacos/data \
+-v /home/nacos/conf:/home/nacos/conf \
+nacos/nacos-server
+
+
+
+
+-v /home/nacos/conf:/home/nacos/conf \
+tail -n 100 /home/nacos/logs/start.out
+
+
+- 1.3版本：
+docker  run \
+--name nacos -d \
+-p 8848:8848 \
+--privileged=true \
+--restart=always \
+-e JVM_XMS=256m \
+-e JVM_XMX=256m \
+-e MODE=standalone \
+-e PREFER_HOST_MODE=feaskye \
+-v /home/nacos/logs:/home/nacos/logs \
+-v /home/nacos/data:/home/nacos/data \
+-v /home/nacos/conf:/home/nacos/conf \
+-v /home/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties \
+nacos/nacos-server:1.3.0
+
+tail -n 100 /home/nacos/logs/start.out
 
 ## 访问
     http://localhost:8848/nacos/#/configurationManagement?dataId=&group=&appName=&namespace=&pageSize=&pageNo=

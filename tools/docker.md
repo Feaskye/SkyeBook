@@ -15,3 +15,15 @@ Docker使您能够将应用程序与基础架构分开，从而可以快速交�
     sudo yum-config-manager --disable docker-ce-edge
     sudo yum install -y docker-ce
 
+
+
+
+
+
+
+docker rm -f 容器id
+docker rmi imageId
+docker logs  -tf --tail 200 nacos
+docker inspect mysql57
+docker network ls
+docker exec -it nacos /bin/bash
