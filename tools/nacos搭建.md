@@ -116,5 +116,21 @@ nacos/nacos-server:1.3.0
 
 tail -n 100 /home/nacos/logs/start.out
 
+
+### windows：1.3成功
+<!-- docker  run --name nacos -d -p 8848:8848 -p 9848:9848 -p 9849:9849 --privileged=true --restart=always -e JVM_XMS=256m -e JVM_XMX=256m -e MODE=standalone -v D:\ProgramFiles\Docker\Containers\nacos\logs:/home/nacos/logs -v D:\ProgramFiles\Docker\Containers\nacos\data:/home/nacos/data -v D:\ProgramFiles\Docker\Containers\nacos\init.d\custom.properties:/home/nacos/init.d/custom.properties nacos/nacos-server -->
+
+
+<!-- docker  run --name nacos2.0.0 -d -p 8848:8848 -p 9848:9848 -p 9849:9849 --privileged=true --restart=always -e JVM_XMS=256m -e JVM_XMX=256m -e MODE=standalone -v D:\ProgramFiles\Docker\Containers\nacos\logs:/home/nacos/logs -v D:\ProgramFiles\Docker\Containers\nacos\data:/home/nacos/data -v D:\ProgramFiles\Docker\Containers\nacos\init.d\custom.properties:/home/nacos/init.d/custom.properties nacos/nacos-server:2.0.0 -->
+
+docker  run --name nacos1.3.0 -d -p 8848:8848 -p 9848:9848 -p 9849:9849 --privileged=true --restart=always -e JVM_XMS=256m -e JVM_XMX=256m -e MODE=standalone -v D:\ProgramFiles\Docker\Containers\nacos\logs:/home/nacos/logs -v D:\ProgramFiles\Docker\Containers\nacos\data:/home/nacos/data -v D:\ProgramFiles\Docker\Containers\nacos\init.d\custom.properties:/home/nacos/init.d/custom.properties nacos/nacos-server:1.3.0
+
+
+
 ## 访问
     http://localhost:8848/nacos/#/configurationManagement?dataId=&group=&appName=&namespace=&pageSize=&pageNo=
+
+
+
+
+

@@ -37,9 +37,13 @@ sudo docker cp /home/redis/redis.conf/redis.conf  容器ID:/etc/redis/redis.conf
 - 5：启动
   
     `
-    docker run -p 6380:6379 --name redis -v /data/redis/redis.conf:/etc/redis/redis.conf  -v /data/redis/data:/data --restart=always -d redis redis-server /etc/redis/redis.conf --appendonly yes
+    docker run -p 6380:6379 --name redis -v /data/redis/redis.conf:/etc/redis/redis.conf  -v /data/redis/data:/data --restart=always -d redis redis-server 
+    /etc/redis/redis.conf --appendonly yes
     `
     
+    `
+    docker run -p 6379:6379 --name redis -v D:/ProgramFiles/Docker/Containers/redis/redis.conf:/etc/redis/redis.conf  -v D:/ProgramFiles/Docker/Containers/redis/data:/data --restart=always -d redis redis-server
+    `
 参数解释：
 
     -p 6379:6379:把容器内的6379端口映射到宿主机6379端口 

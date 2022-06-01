@@ -26,8 +26,15 @@ https://blog.csdn.net/tcliuwenwen/article/details/108799404
 
 开启镜像：docker start mysqldb
 进入镜像：docker attach mysqldb
+
 sudo docker run --name=mysqldb -it -p 3306:3306 -v /opt/data/mysql/mysqld:/var/run/mysqld -v /opt/data/mysql/db:/var/lib/mysql -v /opt/data/mysql/conf:/etc/mysql/conf.d -v /opt/data/mysql/files:/var/lib/mysql-files -e MYSQL_ROOT_PASSWORD=123456 --privileged=true -d mysql
+
 sudo docker run --name=mysql57 -it -p 3307:3306 -v /opt/data/mysql57/db:/var/lib/mysql -v /opt/data/mysql57/conf:/etc/mysql/conf.d -v /opt/data/mysql57/files:/var/lib/mysql-files -e MYSQL_ROOT_PASSWORD=123456 --privileged=true -d mysql:5.7
+
+windwos:
+`
+docker run --name=mysql -it -p 3306:3306 -v D:\ProgramFiles\Docker\Containers\mysql/db:/var/lib/mysql -v D:\ProgramFiles\Docker\Containers\mysql/conf:/etc/mysql/conf.d -v D:\ProgramFiles\Docker\Containers\mysql/files:/var/lib/mysql-files -e MYSQL_ROOT_PASSWORD=123456 --privileged=true -d mysql:5.7
+`
 
 开机启动容器： docker update --restart=always mysql57
 

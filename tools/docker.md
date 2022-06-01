@@ -27,3 +27,6 @@ docker logs  -tf --tail 200 nacos
 docker inspect mysql57
 docker network ls
 docker exec -it nacos /bin/bash
+
+
+mklink /j "C:\Program Files\Docker" "D:\ProgramFiles\Docker"
