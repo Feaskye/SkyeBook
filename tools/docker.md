@@ -6,7 +6,7 @@ Docker使您能够将应用程序与基础架构分开，从而可以快速交�
 
 通过利用Docker的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。
 
-其安装命令如下：
+1.其安装命令如下：
 
     sudo yum install -y yum-utils device-mapper-persistent-data lvm2
     sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -32,7 +32,8 @@ Docker使您能够将应用程序与基础架构分开，从而可以快速交�
     mklink /j "C:\Program Files\Docker" "D:\ProgramFiles\Docker"
     
     
-    3，卸载docker相关包
+
+3.卸载docker相关包
     查看相关包
     yum list installed | grep docker
 
