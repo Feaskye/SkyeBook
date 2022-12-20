@@ -21,12 +21,28 @@ Docker使您能够将应用程序与基础架构分开，从而可以快速交�
 
 
 
-docker rm -f 容器id
-docker rmi imageId
-docker logs  -tf --tail 200 nacos
-docker inspect mysql57
-docker network ls
-docker exec -it nacos /bin/bash
+    docker rm -f 容器id
+    docker rmi imageId
+    docker logs  -tf --tail 200 nacos
+    docker inspect mysql57
+    docker network ls
+    docker exec -it nacos /bin/bash
 
 
-mklink /j "C:\Program Files\Docker" "D:\ProgramFiles\Docker"
+    mklink /j "C:\Program Files\Docker" "D:\ProgramFiles\Docker"
+    
+    
+    3，卸载docker相关包
+    查看相关包
+    yum list installed | grep docker
+
+    把匹配到的包执行 yum remove 删除
+    yum remove  containerd.io.x86_64
+    yum remove docker-ce.x86_64
+    yum remove docker-ce-cli.x86_64
+    yum remove docker-ce-rootless-extras.x86_64
+    yum remove docker-compose-plugin.x86_64
+    yum remove docker-scan-plugin.x86_64
+
+    查看docker是否卸载成功，为空就是卸载成功啦
+    docker version
